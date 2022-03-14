@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <a routerLink="..">Back</a>
+  <div class="container-fluid col-md-6">
+    <h3 class="text-center lead">Add Member to Racing Team</h3>
+    <br />
+    <!--Template Driven Form or Model Driven Form?-->
+    <form id="memberForm"  [formGroup]="membersForm" (ngSubmit)="onSubmit()">
+      <div>
+        <div class="row">
+          <div class="col-md-6">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="firstName" 
+            placeholder="First Name"
+            formControlName="firstName" required/>
+            <div *ngIf="!firstName?.valid && firstName?.dirty" >
+              Please add a name
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input  
+            type="text" 
+            class="form-control" 
+            id="lastName" 
+            placeholder="Last Name"
+            formControlName="lastName" required/>
+            <div *ngIf="!lastName?.valid && lastName?.dirty" >
+              Please add a lastName
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-6">
+            <input 
+            formControlName="jobTitle" 
+            type="text" 
+            class="form-control" 
+            id="jobTitle" 
+            placeholder="Job Title"
+            formControlName="jobTitle" required/>
+            <div *ngIf="!jobTitle?.valid && jobTitle?.dirty" >
+              Please add a Job Title
+            </div>
+          </div>
+          <!--We may have to make a service call to get this list-->
+          <div class="col-md-6">
+            <select id="team" class="custom-select" formControlName="team">
+              <option value="" disabled selected>Select a team</option>
+              <option 
+              *ngFor="let team of teams"
+              [ngValue]="team" > {{team.teamName}} </option>
+            </select>
+            <div *ngIf="!team?.valid && team?.dirty" >
+              Please select a Team
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group col-md-6">
+          <div class="row">
+            <label id="activeStatus" class="md-check lead">
+              <input id="status" type="radio" formControlName="status" value="Active" name="status" checked/> Active
+            </label>
+            <label class="md-check lead">
+              <input id="status" type="radio" formControlName="status" value="Inactive" name="status" /> Inactive
+            </label>
+            <div *ngIf="!status?.valid && status?.dirty" >
+              Please select a status
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Disable if form is invalid-->
+    
+      <button type="submit" class="btn btn-primary pull-right" id="save-btn">
+        Save Member
+      </button>
+    </form>
+  </div>
+</div>
