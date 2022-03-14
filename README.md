@@ -50,7 +50,7 @@ Review the available scripts in the [package.json](package.json)
 
 Application will run on [localhost:8000](http://localhost:8000)
 
-Enter username as "username" and password as "password"
+Enter admin as "username" and password as "password"
 
 `npm start`
 
@@ -58,7 +58,7 @@ Enter username as "username" and password as "password"
 
 Application will run on [localhost:4200](http://localhost:4200)
 
-Enter username as "username" and password as "password"
+Enter admin as "username" and password as "password"
 
 `npm run start-dev`
 

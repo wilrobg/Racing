@@ -33,6 +33,9 @@ export class LoginComponent implements OnInit {
       this.appService.setUsername(formClone.username);
       this.router.navigate(['/members']);
     }
+    else{
+      alert('Bad username or password');
+    }
   }
 
 }
